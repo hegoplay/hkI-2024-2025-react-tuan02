@@ -378,12 +378,50 @@ const quest46 = (...args) => {
       });
       return result;
   }
-  console.log(quest47(1, [2, 3, [4, 5, [6, 7]]]));
+  // console.log(quest47(1, [2, 3, [4, 5, [6, 7]]]));
 // 48. Create a function to return the longest word in a string
+const quest48 = (str) => {
+    return str.split(" ").reduce((longest, word) => word.length > longest.length ? word : longest, "");
+}
 // 49. Shuffle an array of strings
+const quest49 = (arr) => {
+  for(let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
 // 50. Create a function that will receive n as argument and return an array of n
 // random numbers from 1 to n. The numbers should be unique inside the array.
+const quest50 = (n) => {
+    let result = [];
+    for(let i = 1; i <= n; i++) {
+        result.push(i);
+    }
+    
+    return quest49(result);
+}
 // 51. Find the frequency of letters inside a string. Return the result as an array of
 // arrays. Each subarray has 2 elements: letter and number of occurrences.
+const quest51 = (str) => {
+    let freq = {};
+    for(let char of str) {
+        if (freq[char]) {
+            freq[char]++;
+        } else {
+            freq[char] = 1;
+        }
+    }
+    return Object.entries(freq);
+}
 // 52. Calculate Fibonacci(500) with high precision (all digits)
+const quest52 = () => {
+    return quest15(500);
+}
+
+console.log(quest52().first.toString());
+// console.log(BigInt(5)%BigInt(2));
 // 53. Calculate 70! with high precision (all digits)
+const quest53 = () => {
+    return quest15(70);
+}
+console.log(quest53().first.toString());
